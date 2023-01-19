@@ -2,7 +2,7 @@ import pygame
 import time
 
 from cxr.state.state import StateManager
-from cxr.math.base36 import Tridozenal as Td
+from cxr.math.base64 import Tridozenal as Td
 
 targets = [Td(x**2) for x in range(1, 50)]
 l_t = len(targets)

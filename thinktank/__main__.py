@@ -3,7 +3,7 @@ from tkinter import messagebox
 import traceback
 
 from cxr import SM, SMF, SMR
-import cxr.math.base36
+import cxr.math.base64
 
 from thinktank import screen, font, clock, FPS, TICK, ACCUMULATE
 from thinktank.components import NeuronPanel, Brain, Player, Tank, Grants
@@ -39,12 +39,12 @@ def main():
             elif event.type == pygame.KEYDOWN:
                 change = False
                 if event.key == pygame.K_UP:
-                    if cxr.math.base36.default_base < 36:
-                        cxr.math.base36.default_base += 1
+                    if cxr.math.base64.default_base < 36:
+                        cxr.math.base64.default_base += 1
                         change = True
                 elif event.key == pygame.K_DOWN:
-                    if cxr.math.base36.default_base > 2:
-                        cxr.math.base36.default_base -= 1
+                    if cxr.math.base64.default_base > 2:
+                        cxr.math.base64.default_base -= 1
                         change = True
                 elif event.key == pygame.K_b:
                     if len(brains) < len(tank.pods):
@@ -73,7 +73,7 @@ def main():
         tank.draw(screen)
         grants.draw(screen, font)
 
-        text = font.render(f"base: {cxr.math.base36.default_base}", True, (255, 255, 255), "black")
+        text = font.render(f"base: {cxr.math.base64.default_base}", True, (255, 255, 255), "black")
         text_rect = text.get_rect(topleft=(500, 300))
         screen.blit(text, text_rect)
 
